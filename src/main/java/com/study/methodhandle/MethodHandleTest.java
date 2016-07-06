@@ -15,10 +15,10 @@ public class MethodHandleTest {
 
     private static int SIZE = 10000000;
 
-    private static MethodHandle methodHandle(Object reveiver) {
+    private static MethodHandle methodHandle(Object receiver) {
         MethodType mt = MethodType.methodType(void.class, String.class);
         try {
-            return lookup().findVirtual(reveiver.getClass(), "println", mt).bindTo(reveiver);
+            return lookup().findVirtual(receiver.getClass(), "println", mt).bindTo(receiver);
         } catch (NoSuchMethodException e) {
             e.printStackTrace();
         } catch (IllegalAccessException e) {
